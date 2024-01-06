@@ -18,5 +18,5 @@ public class Loan {
     private Book book;
 
     @ManyToOne
-    private User user;
+    private LibraryUser libraryUser;
 }

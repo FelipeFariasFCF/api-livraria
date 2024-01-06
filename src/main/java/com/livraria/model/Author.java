@@ -14,6 +14,6 @@ public class Author {
     private String name;
     private LocalDate dateOfBirth;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany
     private List<Book> books;
 }

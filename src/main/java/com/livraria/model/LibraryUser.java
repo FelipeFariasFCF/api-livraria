@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User {
+public class LibraryUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +16,6 @@ public class User {
     private String email;
     private LocalDate dateOfBirth;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany
     private List<Loan> loans = new ArrayList<>();
 }

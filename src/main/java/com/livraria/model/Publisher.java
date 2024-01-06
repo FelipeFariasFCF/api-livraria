@@ -13,6 +13,6 @@ public class Publisher {
     private String name;
     private Integer foundationYear;
 
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany
     private List<Book> books;
 }
