@@ -1,6 +1,6 @@
 package com.livraria.validations;
 
-import com.livraria.exception.ValidationException;
+import com.livraria.config.exception.ValidationException;
 import com.livraria.model.Author;
 import com.livraria.repository.AuthorRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.livraria.exception;
+package com.livraria.config.exception;
 
 public class ValidationException extends RuntimeException {
     public ValidationException(String message) {

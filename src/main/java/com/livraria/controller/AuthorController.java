@@ -1,4 +1,4 @@
-package com.livraria;
+package com.livraria.controller;
 
 import com.livraria.model.Author;
 import com.livraria.model.dto.AuthorDetailsDTO;
