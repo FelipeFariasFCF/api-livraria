@@ -1,10 +1,11 @@
 package com.livraria.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class LibraryUser {
@@ -15,7 +16,4 @@ public class LibraryUser {
     private String name;
     private String email;
     private LocalDate dateOfBirth;
-
-    @OneToMany
-    private List<Loan> loans = new ArrayList<>();
 }

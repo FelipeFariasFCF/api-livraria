@@ -1,8 +1,9 @@
 package com.livraria.model;
 
-import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Publisher {
@@ -12,7 +13,4 @@ public class Publisher {
     private Long id;
     private String name;
     private Integer foundationYear;
-
-    @OneToMany
-    private List<Book> books;
 }
