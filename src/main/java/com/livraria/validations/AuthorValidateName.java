@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class AuthorValidateName implements Validator<Author> {
+public class AuthorValidateName implements ValidatorAuthor<Author> {
 
     private final AuthorRepository authorRepository;
 

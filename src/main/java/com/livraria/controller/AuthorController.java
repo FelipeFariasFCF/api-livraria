@@ -40,12 +40,12 @@ public class AuthorController {
         return ResponseEntity.ok(new AuthorDetailsDTO(authorService.findById(idAuthor)));
     }
 
-    @PutMapping("{idAuthor}")
+    @PutMapping("/{idAuthor}")
     public ResponseEntity<AuthorDetailsDTO> update(@PathVariable Long idAuthor, @Valid @RequestBody AuthorUpdateDTO dto) {
        return ResponseEntity.ok(new AuthorDetailsDTO(authorService.update(idAuthor, dto)));
     }
 
-    @DeleteMapping("{idAuthor}")
+    @DeleteMapping("/{idAuthor}")
     public ResponseEntity<Void> delete(@PathVariable Long idAuthor) {
         authorService.delete(idAuthor);
         return ResponseEntity.noContent().build();

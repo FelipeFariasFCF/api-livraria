@@ -31,7 +31,7 @@ public class Author {
     }
 
     public void update(AuthorUpdateDTO dto) {
-        this.name = dto.name().trim();
+        this.name = dto.name();
         this.dateOfBirth = dto.dateOfBirth();
     }
 }
