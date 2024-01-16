@@ -3,7 +3,7 @@ package com.livraria.service;
 import com.livraria.model.Author;
 import com.livraria.model.dto.AuthorUpdateDTO;
 import com.livraria.repository.AuthorRepository;
-import com.livraria.validations.ValidatorAuthor;
+import com.livraria.validations.author.ValidatorAuthor;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,7 @@ public class AuthorService {
     }
 
     public Author findById(Long idAuthor) {
-        return authorRepository.findById(idAuthor).orElseThrow(() -> new EntityNotFoundException("Autor não encontrado;"));
+        return authorRepository.findById(idAuthor).orElseThrow(() -> new EntityNotFoundException("Autor não encontrado."));
     }
 
     @Transactional

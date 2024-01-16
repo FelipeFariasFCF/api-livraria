@@ -1,4 +1,4 @@
-package com.livraria.validations;
+package com.livraria.validations.author;
 
 import com.livraria.config.exception.ValidationException;
 import com.livraria.model.Author;
@@ -11,13 +11,13 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class AuthorValidateName implements ValidatorAuthor<Author> {
+public class AuthorValidateName implements ValidatorAuthor {
 
     private final AuthorRepository authorRepository;
 
     @Override
     public void validate(Author author) {
-        if(author.getId() == null) {
+        if (author.getId() == null) {
             if (authorRepository.existsByNameIgnoreCase(author.getName())) {
                 throw new ValidationException("Autor " + author.getName() + " já cadastrado no sistema.");
             }

@@ -1,6 +1,5 @@
 package com.livraria.model;
 
-import com.livraria.model.dto.AuthorSaveDTO;
 import com.livraria.model.dto.PublisherSaveDTO;
 import com.livraria.model.dto.PublisherUpdateDTO;
 import jakarta.persistence.Entity;
@@ -10,8 +9,10 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 

@@ -25,14 +25,14 @@ CREATE TABLE library_user
 
 CREATE TABLE book
 (
-    id                 BIGSERIAL    NOT NULL,
-    title              VARCHAR(255) NOT NULL,
-    isbn               VARCHAR(255),
-    publication_year   INTEGER      NOT NULL,
-    available_quantity INTEGER      NOT NULL,
-    total_quantity     INTEGER      NOT NULL,
-    author_id          int8         NOT NULL,
-    publisher_id       int8         NOT NULL,
+    id                 BIGSERIAL           NOT NULL,
+    title              VARCHAR(255)        NOT NULL,
+    isbn               VARCHAR(255) UNIQUE NOT NULL,
+    publication_year   INTEGER             NOT NULL,
+    available_quantity INTEGER,
+    total_quantity     INTEGER,
+    author_id          int8                NOT NULL,
+    publisher_id       int8                NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_author_id FOREIGN KEY (author_id) REFERENCES author,
     CONSTRAINT fk_publisher_id FOREIGN KEY (publisher_id) REFERENCES publisher
@@ -45,7 +45,7 @@ CREATE TABLE loan
     expected_return_date DATE      NOT NULL,
     actual_return_date   DATE      NOT NULL,
     book_id              int8      NOT NULL,
-    library_user_id              int8      NOT NULL,
+    library_user_id      int8      NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES book,
     CONSTRAINT fk_library_user_id FOREIGN KEY (library_user_id) REFERENCES library_user

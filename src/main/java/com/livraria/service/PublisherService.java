@@ -3,7 +3,7 @@ package com.livraria.service;
 import com.livraria.model.Publisher;
 import com.livraria.model.dto.PublisherUpdateDTO;
 import com.livraria.repository.PublisherRepository;
-import com.livraria.validations.ValidatorPublisher;
+import com.livraria.validations.publisher.ValidatorPublisher;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

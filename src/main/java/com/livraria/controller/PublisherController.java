@@ -46,7 +46,7 @@ public class PublisherController {
     }
 
     @DeleteMapping("/{idPublisher}")
-    public ResponseEntity<PublisherDetailsDTO> delete(@PathVariable Long idPublisher) {
+    public ResponseEntity<Void> delete(@PathVariable Long idPublisher) {
         publisherService.delete(idPublisher);
         return ResponseEntity.noContent().build();
     }

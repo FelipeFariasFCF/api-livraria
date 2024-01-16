@@ -1,4 +1,4 @@
-package com.livraria.validations;
+package com.livraria.validations.publisher;
 
 import com.livraria.config.exception.ValidationException;
 import com.livraria.model.Publisher;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class PublisherValidateName implements ValidatorPublisher<Publisher> {
+public class PublisherValidateName implements ValidatorPublisher {
 
     private final PublisherRepository publisherRepository;
 
