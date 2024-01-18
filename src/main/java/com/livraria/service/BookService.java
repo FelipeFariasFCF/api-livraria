@@ -1,8 +1,8 @@
 package com.livraria.service;
 
 import com.livraria.model.Book;
-import com.livraria.model.dto.BookStockAddDTO;
-import com.livraria.model.dto.BookUpdateDTO;
+import com.livraria.model.dto.book.BookStockAddDTO;
+import com.livraria.model.dto.book.BookUpdateDTO;
 import com.livraria.repository.BookRepository;
 import com.livraria.validations.book.ValidatorBook;
 import jakarta.persistence.EntityNotFoundException;

@@ -1,9 +1,9 @@
 package com.livraria.controller;
 
 import com.livraria.model.Author;
-import com.livraria.model.dto.AuthorDetailsDTO;
-import com.livraria.model.dto.AuthorSaveDTO;
-import com.livraria.model.dto.AuthorUpdateDTO;
+import com.livraria.model.dto.author.AuthorDetailsDTO;
+import com.livraria.model.dto.author.AuthorSaveDTO;
+import com.livraria.model.dto.author.AuthorUpdateDTO;
 import com.livraria.service.AuthorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

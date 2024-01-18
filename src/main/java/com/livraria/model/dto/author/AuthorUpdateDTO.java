@@ -1,4 +1,4 @@
-package com.livraria.model.dto;
+package com.livraria.model.dto.author;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

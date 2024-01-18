@@ -1,4 +1,4 @@
-package com.livraria.model.dto;
+package com.livraria.model.dto.publisher;
 
 import com.livraria.model.Publisher;
 

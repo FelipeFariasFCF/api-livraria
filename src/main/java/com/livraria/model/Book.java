@@ -1,7 +1,7 @@
 package com.livraria.model;
 
-import com.livraria.model.dto.BookSaveDTO;
-import com.livraria.model.dto.BookUpdateDTO;
+import com.livraria.model.dto.book.BookSaveDTO;
+import com.livraria.model.dto.book.BookUpdateDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

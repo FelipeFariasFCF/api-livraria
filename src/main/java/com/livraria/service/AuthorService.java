@@ -1,7 +1,7 @@
 package com.livraria.service;
 
 import com.livraria.model.Author;
-import com.livraria.model.dto.AuthorUpdateDTO;
+import com.livraria.model.dto.author.AuthorUpdateDTO;
 import com.livraria.repository.AuthorRepository;
 import com.livraria.validations.author.ValidatorAuthor;
 import jakarta.persistence.EntityNotFoundException;

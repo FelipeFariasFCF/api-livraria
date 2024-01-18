@@ -1,7 +1,7 @@
 package com.livraria.model;
 
-import com.livraria.model.dto.AuthorSaveDTO;
-import com.livraria.model.dto.AuthorUpdateDTO;
+import com.livraria.model.dto.author.AuthorSaveDTO;
+import com.livraria.model.dto.author.AuthorUpdateDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

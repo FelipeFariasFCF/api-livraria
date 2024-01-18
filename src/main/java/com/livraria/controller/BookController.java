@@ -1,10 +1,10 @@
 package com.livraria.controller;
 
 import com.livraria.model.Book;
-import com.livraria.model.dto.BookDetailsDTO;
-import com.livraria.model.dto.BookSaveDTO;
-import com.livraria.model.dto.BookStockAddDTO;
-import com.livraria.model.dto.BookUpdateDTO;
+import com.livraria.model.dto.book.BookDetailsDTO;
+import com.livraria.model.dto.book.BookSaveDTO;
+import com.livraria.model.dto.book.BookStockAddDTO;
+import com.livraria.model.dto.book.BookUpdateDTO;
 import com.livraria.service.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
