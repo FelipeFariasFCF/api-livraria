@@ -35,6 +35,8 @@ public class Book {
         this.title = dto.title();
         this.isbn = dto.isbn();
         this.publicationYear = dto.publicationYear();
+        this.availableQuantity = 0;
+        this.totalQuantity = 0;
         this.publisher.setId(dto.idPublisher());
         this.author.setId(dto.idAuthor());
     }
@@ -45,5 +47,10 @@ public class Book {
         this.publicationYear = dto.publicationYear();
         this.publisher.setId(dto.idPublisher());
         this.author.setId(dto.idAuthor());
+    }
+
+    public void addStockBook(Integer quantity) {
+        this.totalQuantity += quantity;
+        this.availableQuantity += quantity;
     }
 }

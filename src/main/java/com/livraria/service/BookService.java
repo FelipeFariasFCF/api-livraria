@@ -1,6 +1,7 @@
 package com.livraria.service;
 
 import com.livraria.model.Book;
+import com.livraria.model.dto.BookStockAddDTO;
 import com.livraria.model.dto.BookUpdateDTO;
 import com.livraria.repository.BookRepository;
 import com.livraria.validations.book.ValidatorBook;
@@ -45,5 +46,12 @@ public class BookService {
     public void delete(Long idBook) {
         this.findById(idBook);
         bookRepository.deleteById(idBook);
+    }
+
+    @Transactional
+    public Book addStock(BookStockAddDTO dto) {
+        Book book = this.findById(dto.idBook());
+        book.addStockBook(dto.quantity());
+        return book;
     }
 }

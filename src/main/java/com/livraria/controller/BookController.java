@@ -3,6 +3,7 @@ package com.livraria.controller;
 import com.livraria.model.Book;
 import com.livraria.model.dto.BookDetailsDTO;
 import com.livraria.model.dto.BookSaveDTO;
+import com.livraria.model.dto.BookStockAddDTO;
 import com.livraria.model.dto.BookUpdateDTO;
 import com.livraria.service.BookService;
 import jakarta.validation.Valid;
@@ -49,5 +50,10 @@ public class BookController {
     public ResponseEntity<Void> delete(@PathVariable Long idBook) {
         bookService.delete(idBook);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/add-estoque")
+    public ResponseEntity<BookDetailsDTO> bookStockAdd(@Valid @RequestBody BookStockAddDTO dto) {
+        return ResponseEntity.ok(new BookDetailsDTO(bookService.addStock(dto)));
     }
 }
