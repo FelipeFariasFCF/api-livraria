@@ -43,7 +43,7 @@ CREATE TABLE loan
     id                   BIGSERIAL NOT NULL,
     loan_date            DATE      NOT NULL,
     expected_return_date DATE      NOT NULL,
-    actual_return_date   DATE      NOT NULL,
+    actual_return_date   DATE,
     book_id              int8      NOT NULL,
     library_user_id      int8      NOT NULL,
     PRIMARY KEY (id),

@@ -54,4 +54,10 @@ public class BookService {
         book.addStockBook(dto.quantity());
         return book;
     }
+
+    @Transactional
+    public void removeAvailable(Long idBook) {
+        Book book = this.findById(idBook);
+        book.removeAvailable();
+    }
 }

@@ -53,7 +53,7 @@ public class ExceptionHandlerController {
     }
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<StandardError> erroValidacaoCampos(ValidationException ex, HttpServletRequest request) {
+    public ResponseEntity<StandardError> validationException(ValidationException ex, HttpServletRequest request) {
         StandardError standardError = StandardError.builder()
                 .path(request.getRequestURI())
                 .status(HttpStatus.BAD_REQUEST.value())
@@ -62,5 +62,17 @@ public class ExceptionHandlerController {
                 .message(ex.getMessage())
                 .build();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
+    }
+
+    @ExceptionHandler(BusinessRuleValidation.class)
+    public ResponseEntity<StandardError> businessRuleValidation(BusinessRuleValidation ex, HttpServletRequest request) {
+        StandardError standardError = StandardError.builder()
+                .path(request.getRequestURI())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error("Internal Server Error")
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(standardError);
     }
 }

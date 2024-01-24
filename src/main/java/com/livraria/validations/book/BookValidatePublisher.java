@@ -1,9 +1,9 @@
 package com.livraria.validations.book;
 
-import com.livraria.config.exception.ValidationException;
 import com.livraria.model.Book;
 import com.livraria.model.Publisher;
 import com.livraria.service.PublisherService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +18,8 @@ public class BookValidatePublisher implements ValidatorBook {
         try {
             Publisher publisher = publisherService.findById(book.getPublisher().getId());
             book.setPublisher(publisher);
-        } catch (ValidationException e) {
-            throw new ValidationException("Erro ao associar Editora: " + e.getMessage());
+        } catch (EntityNotFoundException e) {
+            throw new EntityNotFoundException("Erro ao associar Editora: " + e.getMessage());
         }
     }
 }
