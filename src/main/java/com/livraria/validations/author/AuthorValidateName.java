@@ -3,6 +3,7 @@ package com.livraria.validations.author;
 import com.livraria.config.exception.ValidationException;
 import com.livraria.model.Author;
 import com.livraria.repository.AuthorRepository;
+import com.livraria.validations.Validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class AuthorValidateName implements ValidatorAuthor {
+public class AuthorValidateName implements Validator<Author> {
 
     private final AuthorRepository authorRepository;
 

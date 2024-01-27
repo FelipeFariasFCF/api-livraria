@@ -3,6 +3,7 @@ package com.livraria.validations.publisher;
 import com.livraria.config.exception.ValidationException;
 import com.livraria.model.Publisher;
 import com.livraria.repository.PublisherRepository;
+import com.livraria.validations.Validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class PublisherValidateName implements ValidatorPublisher {
+public class PublisherValidateName implements Validator<Publisher> {
 
     private final PublisherRepository publisherRepository;
 

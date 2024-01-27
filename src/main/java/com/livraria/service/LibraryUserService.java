@@ -3,7 +3,7 @@ package com.livraria.service;
 import com.livraria.model.LibraryUser;
 import com.livraria.model.dto.libraryUser.LibraryUserUpdateDTO;
 import com.livraria.repository.LibraryUserRepository;
-import com.livraria.validations.libraryUser.ValidatorLibraryUser;
+import com.livraria.validations.Validator;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ import java.util.List;
 public class LibraryUserService {
 
     private final LibraryUserRepository libraryUserRepository;
-    private final List<ValidatorLibraryUser> validators;
+    private final List<Validator<LibraryUser>> validators;
 
     @Transactional
     public LibraryUser save(LibraryUser user) {

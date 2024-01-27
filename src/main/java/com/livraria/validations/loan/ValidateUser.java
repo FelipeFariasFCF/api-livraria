@@ -3,13 +3,14 @@ package com.livraria.validations.loan;
 import com.livraria.model.LibraryUser;
 import com.livraria.model.Loan;
 import com.livraria.service.LibraryUserService;
+import com.livraria.validations.Validator;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class LoanValidateUser implements ValidatorLoan {
+public class ValidateUser implements Validator<Loan> {
 
     private final LibraryUserService libraryUserService;
 

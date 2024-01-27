@@ -7,10 +7,7 @@ import com.livraria.service.LoanService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -27,5 +24,11 @@ public class LoanController {
         Loan loan = loanService.bookLoan(new Loan(dto));
         URI uri = uriComponentsBuilder.path("/v1/emprestimos/{id}").buildAndExpand(loan.getId()).toUri();
         return ResponseEntity.created(uri).body(new LoanDetailsDTO(loan));
+    }
+
+    @PutMapping("/{idLoan}")
+    public ResponseEntity<Void> returnLoan(@PathVariable Long idLoan) {
+        loanService.returnLoan(idLoan);
+        return ResponseEntity.noContent().build();
     }
 }

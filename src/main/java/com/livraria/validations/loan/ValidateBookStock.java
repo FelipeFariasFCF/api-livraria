@@ -1,24 +1,23 @@
 package com.livraria.validations.loan;
 
-import com.livraria.config.exception.BusinessRuleValidation;
 import com.livraria.model.Book;
 import com.livraria.model.Loan;
 import com.livraria.service.BookService;
+import com.livraria.validations.Validator;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class LoanValidateBookStock implements ValidatorLoan {
+public class ValidateBookStock implements Validator<Loan> {
 
     private final BookService bookService;
 
     @Override
+    @Transactional
     public void validate(Loan loan) {
-        Book book = bookService.findById(loan.getBook().getId());
-        if (book.getAvailableQuantity() <= 0) {
-            throw new BusinessRuleValidation("Livro indisponível para empréstimo.");
-        }
+        Book book = bookService.findByIdAvailable(loan.getBook().getId());
         book.removeAvailable();
     }
 }

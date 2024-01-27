@@ -1,6 +1,5 @@
 package com.livraria.model;
 
-import com.livraria.config.exception.BusinessRuleValidation;
 import com.livraria.model.dto.book.BookSaveDTO;
 import com.livraria.model.dto.book.BookUpdateDTO;
 import jakarta.persistence.*;
@@ -52,16 +51,14 @@ public class Book {
 
     public void addStockBook(Integer quantity) {
         this.totalQuantity += quantity;
-        int available = this.availableQuantity + quantity;
-
-        if (this.totalQuantity < available) {
-            throw new BusinessRuleValidation("Quantidade disponível incompatível com o total no estoque.");
-        }
-
-        this.availableQuantity += available;
+        this.availableQuantity += quantity;
     }
 
     public void removeAvailable() {
         this.availableQuantity -= 1;
+    }
+
+    public void addAvailable() {
+        this.availableQuantity += 1;
     }
 }

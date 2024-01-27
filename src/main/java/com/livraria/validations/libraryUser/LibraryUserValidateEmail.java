@@ -3,6 +3,7 @@ package com.livraria.validations.libraryUser;
 import com.livraria.config.exception.ValidationException;
 import com.livraria.model.LibraryUser;
 import com.livraria.repository.LibraryUserRepository;
+import com.livraria.validations.Validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class LibraryUserValidateEmail implements ValidatorLibraryUser {
+public class LibraryUserValidateEmail implements Validator<LibraryUser> {
 
     private final LibraryUserRepository libraryUserRepository;
 

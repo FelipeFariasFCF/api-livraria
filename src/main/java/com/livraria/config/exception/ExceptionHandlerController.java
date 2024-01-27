@@ -68,11 +68,11 @@ public class ExceptionHandlerController {
     public ResponseEntity<StandardError> businessRuleValidation(BusinessRuleValidation ex, HttpServletRequest request) {
         StandardError standardError = StandardError.builder()
                 .path(request.getRequestURI())
-                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                .error("Internal Server Error")
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error("Bad request")
                 .timestamp(LocalDateTime.now())
                 .message(ex.getMessage())
                 .build();
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(standardError);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
     }
 }

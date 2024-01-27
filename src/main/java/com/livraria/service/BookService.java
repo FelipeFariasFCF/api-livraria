@@ -1,10 +1,11 @@
 package com.livraria.service;
 
+import com.livraria.config.exception.BusinessRuleValidation;
 import com.livraria.model.Book;
 import com.livraria.model.dto.book.BookStockAddDTO;
 import com.livraria.model.dto.book.BookUpdateDTO;
 import com.livraria.repository.BookRepository;
-import com.livraria.validations.book.ValidatorBook;
+import com.livraria.validations.Validator;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ import java.util.List;
 public class BookService {
 
     private final BookRepository bookRepository;
-    private final List<ValidatorBook> validators;
+    private final List<Validator<Book>> validators;
 
     @Transactional
     public Book save(Book book) {
@@ -33,6 +34,10 @@ public class BookService {
 
     public Book findById(Long idBook) {
         return bookRepository.findById(idBook).orElseThrow(() -> new EntityNotFoundException("Livro não encontrado."));
+    }
+
+    public Book findByIdAvailable(Long idBook) {
+        return bookRepository.findByIdAndAvailableQuantityGreaterThanZero(idBook).orElseThrow(() -> new BusinessRuleValidation("Livro indisponível para empréstimo."));
     }
 
     @Transactional
@@ -56,8 +61,7 @@ public class BookService {
     }
 
     @Transactional
-    public void removeAvailable(Long idBook) {
-        Book book = this.findById(idBook);
-        book.removeAvailable();
+    public void returnBook(Book book) {
+        book.addAvailable();
     }
 }

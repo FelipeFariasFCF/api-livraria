@@ -3,7 +3,7 @@ package com.livraria.service;
 import com.livraria.model.Publisher;
 import com.livraria.model.dto.publisher.PublisherUpdateDTO;
 import com.livraria.repository.PublisherRepository;
-import com.livraria.validations.publisher.ValidatorPublisher;
+import com.livraria.validations.Validator;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ import java.util.List;
 public class PublisherService {
 
     private final PublisherRepository publisherRepository;
-    private final List<ValidatorPublisher> validators;
+    private final List<Validator<Publisher>> validators;
 
     @Transactional
     public Publisher save(Publisher publisher) {
