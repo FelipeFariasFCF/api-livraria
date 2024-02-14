@@ -8,6 +8,7 @@ public record BookSaveDTO(
         @NotBlank String isbn,
         @NotNull Integer publicationYear,
         @NotNull Long idPublisher,
-        @NotNull Long idAuthor
+        @NotNull Long idAuthor,
+        @NotNull Long idTag
 ) {
 }

@@ -3,7 +3,6 @@ package com.livraria.service;
 import com.livraria.model.Publisher;
 import com.livraria.model.dto.publisher.PublisherUpdateDTO;
 import com.livraria.repository.PublisherRepository;
-import com.livraria.validations.Validator;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -11,18 +10,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class PublisherService {
 
     private final PublisherRepository publisherRepository;
-    private final List<Validator<Publisher>> validators;
 
     @Transactional
     public Publisher save(Publisher publisher) {
-        validators.forEach(v -> v.validate(publisher));
+        publisher.setName(publisher.getName().toUpperCase());
         return publisherRepository.save(publisher);
     }
 

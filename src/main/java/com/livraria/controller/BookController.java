@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -55,5 +56,10 @@ public class BookController {
     @PostMapping("/add-estoque")
     public ResponseEntity<BookDetailsDTO> bookStockAdd(@Valid @RequestBody BookStockAddDTO dto) {
         return ResponseEntity.ok(new BookDetailsDTO(bookService.addStock(dto)));
+    }
+
+    @GetMapping("/etiquetas/{idTag}")
+    public ResponseEntity<List<BookDetailsDTO>> findAllByTag(@PathVariable Long idTag) {
+        return ResponseEntity.ok(bookService.findAllByTag(idTag).stream().map(BookDetailsDTO::new).toList());
     }
 }

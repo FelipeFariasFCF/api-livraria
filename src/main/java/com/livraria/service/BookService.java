@@ -24,6 +24,7 @@ public class BookService {
 
     @Transactional
     public Book save(Book book) {
+        book.setTitle(book.getTitle().toUpperCase());
         validators.forEach(v -> v.validate(book));
         return bookRepository.save(book);
     }
@@ -63,5 +64,9 @@ public class BookService {
     @Transactional
     public void returnBook(Book book) {
         book.addAvailable();
+    }
+
+    public List<Book> findAllByTag(Long idTag) {
+        return bookRepository.findAllByTag_Id(idTag);
     }
 }

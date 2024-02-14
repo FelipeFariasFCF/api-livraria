@@ -31,6 +31,9 @@ public class Book {
     @ManyToOne
     private Author author = new Author();
 
+    @ManyToOne
+    private Tag tag = new Tag();
+
     public Book(BookSaveDTO dto) {
         this.title = dto.title();
         this.isbn = dto.isbn();
@@ -39,6 +42,7 @@ public class Book {
         this.totalQuantity = 0;
         this.publisher.setId(dto.idPublisher());
         this.author.setId(dto.idAuthor());
+        this.tag.setId(dto.idTag());
     }
 
     public void update(BookUpdateDTO dto) {
@@ -47,6 +51,7 @@ public class Book {
         this.publicationYear = dto.publicationYear();
         this.publisher.setId(dto.idPublisher());
         this.author.setId(dto.idAuthor());
+        this.tag.setId(dto.idTag());
     }
 
     public void addStockBook(Integer quantity) {

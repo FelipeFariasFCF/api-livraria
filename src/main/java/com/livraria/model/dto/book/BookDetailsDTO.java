@@ -10,9 +10,10 @@ public record BookDetailsDTO(
         Integer availableQuantity,
         Integer totalQuantity,
         String publisher,
-        String author
+        String author,
+        String tag
 ) {
     public BookDetailsDTO(Book book) {
-        this(book.getId(), book.getTitle(), book.getIsbn(), book.getPublicationYear(), book.getAvailableQuantity(), book.getTotalQuantity(), book.getPublisher().getName(), book.getAuthor().getName());
+        this(book.getId(), book.getTitle(), book.getIsbn(), book.getPublicationYear(), book.getAvailableQuantity(), book.getTotalQuantity(), book.getPublisher().getName(), book.getAuthor().getName(), book.getTag().getName());
     }
 }

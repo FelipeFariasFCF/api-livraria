@@ -1,7 +1,7 @@
 # Projeto de Gerenciamento de Livraria
 
 ## Descrição
-Este projeto consiste em uma aplicação backend desenvolvida em Java, utilizando o ecossistema Spring. O objetivo principal é oferecer funcionalidades de gerenciamento para uma livraria, contemplando entidades como `Livro`, `Autor`, `Editora`, `Usuário` e `Empréstimo`. Foco total na administração, sem área de usuário.
+Este projeto consiste em uma aplicação backend desenvolvida em Java, utilizando o ecossistema Spring. O objetivo principal é oferecer funcionalidades de gerenciamento para uma livraria, contemplando entidades como `Livro`, `Autor`, `Editora`, `Etiqueta`, `Usuário` e `Empréstimo`. Foco total na administração, sem área de usuário.
 
 ## Tecnologias
 - **Spring Boot** (v3.2.1)
@@ -17,6 +17,7 @@ Este projeto consiste em uma aplicação backend desenvolvida em Java, utilizand
 - `/v1/livros`: CRUD para gerenciar livros.
 - `/v1/autores`: CRUD para gerenciar autores.
 - `/v1/editoras`: CRUD para gerenciar editoras.
+- `/v1/etiquetas`: CRUD para gerenciar etiquetas.
 - `/v1/usuarios`: CRUD para gerenciar usuários.
 - `/v1/emprestimos`: CRUD para gerenciar empréstimos.
 

@@ -31,4 +31,16 @@ public class LoanService {
         loan.setActualReturnDate(LocalDate.now());
         bookService.returnBook(loan.getBook());
     }
+
+    public List<Loan> outstandingLoans() {
+        return loanRepository.findAllByActualReturnDateIsNull();
+    }
+
+    public List<Loan> findAllLoansByBook(Long idBook) {
+        return loanRepository.findAllByBook_Id(idBook);
+    }
+
+    public List<Loan> findAllLoansByUser(Long idUser) {
+        return loanRepository.findAllByLibraryUser_Id(idUser);
+    }
 }

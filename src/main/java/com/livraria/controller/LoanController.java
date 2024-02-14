@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,5 +31,20 @@ public class LoanController {
     public ResponseEntity<Void> returnLoan(@PathVariable Long idLoan) {
         loanService.returnLoan(idLoan);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/pendentes")
+    public ResponseEntity<List<LoanDetailsDTO>> outstandingLoans() {
+        return ResponseEntity.ok().body(loanService.outstandingLoans().stream().map(LoanDetailsDTO::new).toList());
+    }
+
+    @GetMapping("/livros/{idBook}")
+    public ResponseEntity<List<LoanDetailsDTO>> findAllLoansByBook(@PathVariable Long idBook) {
+        return ResponseEntity.ok().body(loanService.findAllLoansByBook(idBook).stream().map(LoanDetailsDTO::new).toList());
+    }
+
+    @GetMapping("/usuarios/{idUser}")
+    public ResponseEntity<List<LoanDetailsDTO>> findAllLoansByUser(@PathVariable Long idUser) {
+        return ResponseEntity.ok().body(loanService.findAllLoansByUser(idUser).stream().map(LoanDetailsDTO::new).toList());
     }
 }
