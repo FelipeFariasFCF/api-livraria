@@ -30,6 +30,14 @@ CREATE TABLE library_user
     PRIMARY KEY (id)
 );
 
+CREATE TABLE admin_user
+(
+    id            BIGSERIAL           NOT NULL,
+    login          VARCHAR(255)        NOT NULL,
+    password         VARCHAR(255) UNIQUE NOT NULL,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE book
 (
     id                 BIGSERIAL           NOT NULL,
